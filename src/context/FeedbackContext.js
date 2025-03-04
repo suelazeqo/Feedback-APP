@@ -38,14 +38,24 @@ export const FeedbackProvider = ({children}) => {
             edit: true
         })
     }
-    const updateFeedback = (id, updItem) => {
+    const updateFeedback = async (id, updItem) => {
+        const response = await fetch(`/feedback/${id}`,{
+            method:'PUT',
+            headers: {
+                'Content_Type': 'application/json'
+            },
+            body: JSON.stringify(updItem)
+        })
+
+        const data  =await response.json();
         setFeedback(
             feedback.map((item) =>
-                (item.id === id ? {...item, ...updItem} : item))
+                (item.id === id ? {...item, ...data} : item))
         )
     }
-    const deleteFeedback = (id) => {
+    const deleteFeedback = async (id) => {
         if (window.confirm('Are you sure you want to delete?')) {
+            await fetch(`/feedback/${id}`, {method:'DELETE'})
             setFeedback(feedback.filter((item) => item.id !== id))
         }
     }
