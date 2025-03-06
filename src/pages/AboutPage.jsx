@@ -1,8 +1,8 @@
 import Card from "../component/shared/Card";
 import {Link} from "react-router-dom";
 
-function AboutPage(){
-    return<Card>
+const AboutPage = () => {
+    return <Card>
         <div className="about">
             <h1>This is a Project</h1>
             <p>This is a React App to leave feedback for a product or service</p>

@@ -1,6 +1,6 @@
 import spinner from '../assets/spinner.gif'
 
-function Spinner() {
+const Spinner = () => {
     return <img src={spinner} alt="Loading..." style={
         {
             width: '100px',

@@ -4,14 +4,13 @@ import FeedbackItem from "./FeedbackItem";
 import FeedbackContext from "../context/FeedbackContext";
 import Spinner from "./shared/Spinner";
 
-function FeedbackList() {
+const FeedbackList = () => {
     const {feedback, isLoading} = useContext(FeedbackContext);
 
-    if (!isLoading && (!feedback || feedback.length === 0)) {
-        return <p>No Feedback Yet</p>;
-    }
+    if (isLoading) return <Spinner/>;
+    if (!feedback?.length) return <p>No Feedback Yet</p>;
 
-    return isLoading ? <Spinner/> : <div className="feedback-list">
+    return (
         <AnimatePresence>
             {feedback.map((item) => (
                 <motion.div
@@ -25,7 +24,7 @@ function FeedbackList() {
                 </motion.div>
             ))}
         </AnimatePresence>
-    </div>
-}
+    );
+};
 
 export default FeedbackList;
