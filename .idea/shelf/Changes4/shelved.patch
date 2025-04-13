@@ -1,0 +1,44 @@
+Index: src/context/FeedbackContext.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import {createContext, useState, useEffect} from \"react\";\r\n\r\nconst FeedbackContext = createContext()\r\n\r\nexport const FeedbackProvider = ({children}) => {\r\n    const [isLoading, setIsLoading] = useState(true)\r\n    const [feedback, setFeedback] = useState([])\r\n    const [feedbackEdit, setFeedbackEdit] = useState({\r\n        item: {},\r\n        edit: false\r\n    })\r\n\r\n    useEffect(()=>{\r\n        fetchFeedback()\r\n    })\r\n    const fetchFeedback = async ()=>{\r\n        const response = await fetch(\r\n            `/feedback?_sort=id&_order=desc`)\r\n        const data = await response.json();\r\n        setFeedback(data)\r\n        setIsLoading(false)\r\n    }\r\n    const addFeedback = async (newFeedback) => {\r\n        const response = await fetch('/feedback',\r\n            {\r\n                method: 'POST',\r\n                headers: {\r\n                    'Content-type': 'application/json'\r\n                },\r\n                body: JSON.stringify(newFeedback)\r\n             })\r\n        const data = await response.json()\r\n        setFeedback([data, ...feedback])\r\n    }\r\n    const editFeedback = (item) => {\r\n        setFeedbackEdit({\r\n            item,\r\n            edit: true\r\n        })\r\n    }\r\n    const updateFeedback = async (id, updItem) => {\r\n        const response = await fetch(`/feedback/${id}`,{\r\n            method:'PUT',\r\n            headers: {\r\n                'Content_Type': 'application/json'\r\n            },\r\n            body: JSON.stringify(updItem)\r\n        })\r\n\r\n        const data  =await response.json();\r\n        setFeedback(\r\n            feedback.map((item) =>\r\n                (item.id === id ? {...item, ...data} : item))\r\n        )\r\n    }\r\n    const deleteFeedback = async (id) => {\r\n        if (window.confirm('Are you sure you want to delete?')) {\r\n            await fetch(`/feedback/${id}`, {method:'DELETE'})\r\n            setFeedback(feedback.filter((item) => item.id !== id))\r\n        }\r\n    }\r\n    return <FeedbackContext.Provider value={{\r\n        feedback,\r\n        feedbackEdit,\r\n        isLoading,\r\n        addFeedback,\r\n        editFeedback,\r\n        updateFeedback,\r\n        deleteFeedback\r\n    }}>\r\n        {children}\r\n    </FeedbackContext.Provider>\r\n}\r\nexport default FeedbackContext;\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/context/FeedbackContext.js b/src/context/FeedbackContext.js
+--- a/src/context/FeedbackContext.js	(revision 457fea6cc10018f5e402a6268f1af2ecc11cf35c)
++++ b/src/context/FeedbackContext.js	(date 1741251412915)
+@@ -15,13 +15,13 @@
+     })
+     const fetchFeedback = async ()=>{
+         const response = await fetch(
+-            `/feedback?_sort=id&_order=desc`)
++            `http://localhost:5000/feedback?_sort=id&_order=desc`)
+         const data = await response.json();
+         setFeedback(data)
+         setIsLoading(false)
+     }
+     const addFeedback = async (newFeedback) => {
+-        const response = await fetch('/feedback',
++        const response = await fetch('http://localhost:5000/feedback',
+             {
+                 method: 'POST',
+                 headers: {
+@@ -39,7 +39,7 @@
+         })
+     }
+     const updateFeedback = async (id, updItem) => {
+-        const response = await fetch(`/feedback/${id}`,{
++        const response = await fetch(`http://localhost:5000/feedback/${id}`,{
+             method:'PUT',
+             headers: {
+                 'Content_Type': 'application/json'
+@@ -55,7 +55,7 @@
+     }
+     const deleteFeedback = async (id) => {
+         if (window.confirm('Are you sure you want to delete?')) {
+-            await fetch(`/feedback/${id}`, {method:'DELETE'})
++            await fetch(`http://localhost:5000/feedback/${id}`, {method:'DELETE'})
+             setFeedback(feedback.filter((item) => item.id !== id))
+         }
+     }

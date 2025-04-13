@@ -1,0 +1,40 @@
+Index: src/component/FeedbackList.jsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import FeedbackItem from \"./FeedbackItem\";\r\nimport PropTypes from \"prop-types\";\r\n\r\nfunction FeedbackList({feedback, handleDelete}) {\r\n\r\n    if(!feedback || feedback.length === 0){\r\n        return <p>No Feedback Yet</p>\r\n    }\r\n\r\n    return<div className='feedback-item'>\r\n        {feedback.map((item)=> (\r\n        <FeedbackItem\r\n            key={item.id}\r\n            item={item}\r\n            handleDelete={handleDelete}\r\n        />\r\n        ))}\r\n    </div>\r\n}\r\nFeedbackList.propTypes={\r\n    feedback: PropTypes.arrayOf(\r\n        PropTypes.shape({\r\n            id: PropTypes.number.isRequired,\r\n            text: PropTypes.string.isRequired,\r\n            rating: PropTypes.number.isRequired,\r\n        })\r\n    )\r\n}\r\n\r\nexport default FeedbackList\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/component/FeedbackList.jsx b/src/component/FeedbackList.jsx
+--- a/src/component/FeedbackList.jsx	(revision a94619f627eba5b139f866f907994e707c59b927)
++++ b/src/component/FeedbackList.jsx	(date 1740996447435)
+@@ -1,3 +1,4 @@
++import {motion, AnimatePresence} from 'framer-motion'
+ import FeedbackItem from "./FeedbackItem";
+ import PropTypes from "prop-types";
+ 
+@@ -7,14 +8,22 @@
+         return <p>No Feedback Yet</p>
+     }
+ 
+-    return<div className='feedback-item'>
++    return<div className='feedback-list'>
++        <AnimatePresence>
+         {feedback.map((item)=> (
++            <motion.div
++                key={item.id}
++                initial={{opacity:0}}
++                animate={{opacity:1}}
++                exit={{opacity:0}}
++            >
+         <FeedbackItem
+             key={item.id}
+             item={item}
+             handleDelete={handleDelete}
+-        />
++        /></motion.div>
+         ))}
++        </AnimatePresence>
+     </div>
+ }
+ FeedbackList.propTypes={

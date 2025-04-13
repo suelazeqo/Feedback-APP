@@ -1,0 +1,173 @@
+Index: src/component/shared/Button.jsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import PropTypes from \"prop-types\";\r\n\r\nfunction Button({children, version='primary', type='button', isDisabled=false}){\r\n    return(\r\n        <button\r\n            type={type}\r\n            disabled={isDisabled}\r\n            className={`btn btn-${version}`}\r\n        >{\r\n            children\r\n        }</button>\r\n    )\r\n}\r\nButton.propTypes = {\r\n    children: PropTypes.node.isRequired,\r\n    version:PropTypes.string,\r\n    type: PropTypes.string,\r\n    isDisabled: PropTypes.bool\r\n}\r\nexport default Button\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/component/shared/Button.jsx b/src/component/shared/Button.jsx
+--- a/src/component/shared/Button.jsx	(revision 457fea6cc10018f5e402a6268f1af2ecc11cf35c)
++++ b/src/component/shared/Button.jsx	(date 1741250988948)
+@@ -1,20 +1,16 @@
+ import PropTypes from "prop-types";
+ 
+-function Button({children, version='primary', type='button', isDisabled=false}){
+-    return(
+-        <button
+-            type={type}
+-            disabled={isDisabled}
+-            className={`btn btn-${version}`}
+-        >{
+-            children
+-        }</button>
+-    )
+-}
++const Button = ({ children, version = "primary", type = "button", isDisabled = false }) => (
++    <button type={type} disabled={isDisabled} className={`btn btn-${version}`}>
++        {children}
++    </button>
++);
++
+ Button.propTypes = {
+     children: PropTypes.node.isRequired,
+-    version:PropTypes.string,
++    version: PropTypes.string,
+     type: PropTypes.string,
+-    isDisabled: PropTypes.bool
+-}
+-export default Button
++    isDisabled: PropTypes.bool,
++};
++
++export default Button;
+Index: src/component/shared/Card.jsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import PropTypes from \"prop-types\";\r\n\r\nfunction Card({children,  reverse = false}) {\r\n    return(\r\n        <div className={`card ${reverse && 'reverse'}`}>\r\n            {children}\r\n        </div>\r\n    )\r\n}\r\nCard.propTypes = {\r\n    children: PropTypes.node.isRequired,\r\n    reverse: PropTypes.bool\r\n}\r\n\r\nexport default Card\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/component/shared/Card.jsx b/src/component/shared/Card.jsx
+--- a/src/component/shared/Card.jsx	(revision 457fea6cc10018f5e402a6268f1af2ecc11cf35c)
++++ b/src/component/shared/Card.jsx	(date 1741251054078)
+@@ -1,15 +1,14 @@
+ import PropTypes from "prop-types";
+ 
+-function Card({children,  reverse = false}) {
+-    return(
+-        <div className={`card ${reverse && 'reverse'}`}>
+-            {children}
+-        </div>
+-    )
+-}
++const Card = ({ children, reverse = false }) => (
++    <div className={`card ${reverse ? 'reverse' : ''}`}>
++        {children}
++    </div>
++);
++
+ Card.propTypes = {
+     children: PropTypes.node.isRequired,
+-    reverse: PropTypes.bool
+-}
++    reverse: PropTypes.bool,
++};
+ 
+-export default Card
++export default Card;
+Index: .idea/sonarlint/securityhotspotstore/index.pb
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/sonarlint/securityhotspotstore/index.pb b/.idea/sonarlint/securityhotspotstore/index.pb
+--- a/.idea/sonarlint/securityhotspotstore/index.pb	(revision 457fea6cc10018f5e402a6268f1af2ecc11cf35c)
++++ b/.idea/sonarlint/securityhotspotstore/index.pb	(date 1741251100099)
+@@ -1,0 +1,29 @@
++
++=
++
++src/index.css,c\5\c5d38a62d1faae90a2acaa34b79a7ef365c917e4
++H
++src/component/Header.jsx,5\2\5248342356574bcd2ac999c50b113651f9423f73
++<
++src/index.js,f\9\f900edc44cb929c2267a16100a32851f6d5b477d
++O
++src/component/AboutIconLink.jsx,3\5\35234071d403ca330d4d7f50bcdfa45e9ed6fa27
++G
++src/pages/AboutPage.jsx,6\6\6698af6590452b2e86158a5a62376e5e39ef3399
++O
++src/component/FeedbackStats.jsx,b\0\b04f358d078c46a9fc589b2bbacc863437c2546f
++:
++
++src/App.js,1\e\1e43fa63aecd2127be034b3fb9d4caa172275714
++N
++src/component/FeedbackItem.jsx,6\4\6428ad73fc00a13f81abd48c70b3f97a0b40a665
++N
++src/component/RatingSelect.jsx,8\a\8aa219165dbb34928aa2f81693417754a7e43aa5
++N
++src/component/FeedbackForm.jsx,e\9\e90f725e89f4530efdd04995d1df9ae4beb50919
++P
++ src/component/shared/Spinner.jsx,1\6\16143542e0c037229515dd563a8cc0580ad1ef69
++N
++src/component/FeedbackList.jsx,b\5\b51eb2328b26ef7fe017531c199f80e2567adf2a
++7
++db.json,8\8\882a43610b9835dd51ca4ad37a0967fa0205e328
+\ No newline at end of file
+Index: .idea/sonarlint/issuestore/index.pb
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/sonarlint/issuestore/index.pb b/.idea/sonarlint/issuestore/index.pb
+--- a/.idea/sonarlint/issuestore/index.pb	(revision 457fea6cc10018f5e402a6268f1af2ecc11cf35c)
++++ b/.idea/sonarlint/issuestore/index.pb	(date 1741251100097)
+@@ -1,0 +1,29 @@
++
++=
++
++src/index.css,c\5\c5d38a62d1faae90a2acaa34b79a7ef365c917e4
++H
++src/component/Header.jsx,5\2\5248342356574bcd2ac999c50b113651f9423f73
++<
++src/index.js,f\9\f900edc44cb929c2267a16100a32851f6d5b477d
++G
++src/pages/AboutPage.jsx,6\6\6698af6590452b2e86158a5a62376e5e39ef3399
++O
++src/component/AboutIconLink.jsx,3\5\35234071d403ca330d4d7f50bcdfa45e9ed6fa27
++O
++src/component/FeedbackStats.jsx,b\0\b04f358d078c46a9fc589b2bbacc863437c2546f
++:
++
++src/App.js,1\e\1e43fa63aecd2127be034b3fb9d4caa172275714
++N
++src/component/FeedbackItem.jsx,6\4\6428ad73fc00a13f81abd48c70b3f97a0b40a665
++N
++src/component/RatingSelect.jsx,8\a\8aa219165dbb34928aa2f81693417754a7e43aa5
++N
++src/component/FeedbackForm.jsx,e\9\e90f725e89f4530efdd04995d1df9ae4beb50919
++N
++src/component/FeedbackList.jsx,b\5\b51eb2328b26ef7fe017531c199f80e2567adf2a
++P
++ src/component/shared/Spinner.jsx,1\6\16143542e0c037229515dd563a8cc0580ad1ef69
++7
++db.json,8\8\882a43610b9835dd51ca4ad37a0967fa0205e328
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"VcsDirectoryMappings\">\r\n    <mapping directory=\"\" vcs=\"Git\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+--- a/.idea/vcs.xml	(revision 457fea6cc10018f5e402a6268f1af2ecc11cf35c)
++++ b/.idea/vcs.xml	(date 1741089729056)
+@@ -2,5 +2,6 @@
+ <project version="4">
+   <component name="VcsDirectoryMappings">
+     <mapping directory="" vcs="Git" />
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+   </component>
+ </project>
+\ No newline at end of file
