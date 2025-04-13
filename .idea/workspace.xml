@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="00a5e47b-20c9-4819-9414-ff5980c1287b" name="Changes" comment="" />
+    <list default="true" id="00a5e47b-20c9-4819-9414-ff5980c1287b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Changes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Changes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Changes1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Changes1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Changes2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Changes2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Changes3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Changes3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Changes4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Changes4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,7 +68,7 @@
       <workItem from="1740934354969" duration="28848000" />
       <workItem from="1741250852000" duration="3269000" />
       <workItem from="1741549181922" duration="847000" />
-      <workItem from="1744540658591" duration="1431000" />
+      <workItem from="1744540658591" duration="2217000" />
     </task>
     <servers />
   </component>
